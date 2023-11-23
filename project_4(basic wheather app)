@@ -1,0 +1,18 @@
+import requests
+def get_weather(api_key,city):
+  basic_url="http://api.openweathermap.org/data/2.5/weather"
+  params={"q":city,"appid":api_key,"units":"metric"}
+  response=requests.get(base_url,params=params)
+  if response.status_code==200:
+  weather_data=response.json()
+  main_weather=weather_data["weather"][0]["description"]
+  temperature=weather_data["main"]["temp"]
+  return f"The weather in {city} is {main_weather} with a temperature of {temperature}c."
+  else:
+  return f"Error: unable to fetch weather data.Status code:
+  {response.status_code}"
+  if __name__=="__main__":
+  api_key="https://5657585.org/data/3"
+  city=input("enter city name : ")
+  result=get_weather(api_key,"http://api.openweathermap.org/data/2.5/weather"city)
+  print(result)
