@@ -1,0 +1,16 @@
+import socket
+server=socket.socket(socket.AF_INET,socket.SOCK_STREAM
+server.blind(('localhost,'8080))
+server.listen(6)
+while True:
+   client,address=server.accept()
+   data=client.recv(1235)
+   print(f"Recieved:{data.decode()"})
+   client.send("message received".encoded())
+   client.close()
+   message="hello,server!"
+   client.send(message.encode())
+   response=client.recv(1025)
+   print(f"server response:
+   {response.decode()}")
+   client.close()
